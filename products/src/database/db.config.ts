@@ -4,9 +4,8 @@ import mongoose, { ConnectOptions } from "mongoose";
 export const connectDb = async () => {
   const options = {};
   const mongod = await mongoose.connect(
-    `mongodb://127.0.01:27017/customers`,
+    `mongodb://${DB_HOST}:${DB_PORT}/${DB_DATABASE}`,
     options as ConnectOptions
   );
-  // const mongod =  await mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_DATABASE}`, options as ConnectOptions );
-  //   console.log("MongoDb Connected", mongod.connection.name);
+  console.log("MongoDb Connected", mongod.connection.name);
 };
