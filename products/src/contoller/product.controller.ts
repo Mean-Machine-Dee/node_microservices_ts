@@ -31,10 +31,12 @@ export default class ProductController {
     }
   };
 
-
-  addWishlist = async (req:Request, res: Response, next: NextFunction) =>{
-    try{
-      const params = req.body
+  addWishlist = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const params = req.body;
+      return res.status(200).json({ message: "added" });
+    } catch (err: any) {
+      next(new CustomError("Error updating wishlist", 404, err.stackTrace));
     }
-  }
+  };
 }
